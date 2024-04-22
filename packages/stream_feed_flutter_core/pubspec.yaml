@@ -15,8 +15,12 @@ dependencies:
     sdk: flutter
   meta: ^1.7.0
   rxdart: ^0.27.1
-  stream_feed: ^0.6.0+2
+#  stream_feed: ^0.6.0+2
 dev_dependencies:
   flutter_test:
     sdk: flutter
   mocktail: ^0.3.0
+  stream_feed:
+    git:
+      url: https://github.com/toaingo2108/stream-feed-flutter
+      path: packages/stream_feed
