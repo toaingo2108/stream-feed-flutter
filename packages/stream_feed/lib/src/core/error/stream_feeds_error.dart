@@ -38,8 +38,8 @@ class StreamFeedsNetworkError extends StreamFeedsError {
     this.data,
   }) : super(message);
 
-  /// Builds a [StreamFeedsNetworkError] from a [DioError].
-  factory StreamFeedsNetworkError.fromDioError(DioError error) {
+  /// Builds a [StreamFeedsNetworkError] from a [DioException].
+  factory StreamFeedsNetworkError.fromDioError(DioException error) {
     final response = error.response;
     ErrorResponse? errorResponse;
     final data = json.decode(response?.data);
@@ -48,8 +48,10 @@ class StreamFeedsNetworkError extends StreamFeedsError {
     }
     return StreamFeedsNetworkError.raw(
       code: errorResponse?.code ?? -1,
-      message:
-          errorResponse?.message ?? response?.statusMessage ?? error.message,
+      message: errorResponse?.message ??
+          response?.statusMessage ??
+          error.message ??
+          'Unknown error',
       statusCode: errorResponse?.statusCode ?? response?.statusCode,
       data: errorResponse,
     )..stackTrace = error.stackTrace;

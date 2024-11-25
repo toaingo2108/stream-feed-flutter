@@ -9,6 +9,8 @@ environment:
 
 dependencies:
   cupertino_icons: ^1.0.2
+  faye_dart:
+    path: ../packages/faye_dart
   flutter:
     sdk: flutter
   stream_feed:
