@@ -162,6 +162,7 @@ void main() {
               feedGroup: feedGroup,
               activity: activity,
               textEditingController: textEditingController,
+              foreignId: foreignId,
             ),
           ),
         ),
@@ -236,6 +237,7 @@ void main() {
     final now = DateTime.now();
     final commentField = CommentField(
       feedGroup: 'whatever:300',
+      foreignId: 'foreign_id',
       textEditingController: TextEditingController(),
       activity: GenericEnrichedActivity(
         time: now,

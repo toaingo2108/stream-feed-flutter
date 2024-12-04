@@ -7,6 +7,7 @@ homepage: https://getstream.io/
 environment:
   sdk: ">=2.14.0 <3.0.0"
   flutter: ">=1.17.0"
+publish_to: none
 
 dependencies:
   dio: ^5.4.3+1
@@ -16,11 +17,14 @@ dependencies:
   meta: ^1.7.0
   rxdart: ^0.28.0
 #  stream_feed: ^0.6.0+2
+  stream_feed:
+    path: ../stream_feed
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
   mocktail: ^0.3.0
-  stream_feed:
-    git:
-      url: https://github.com/toaingo2108/stream-feed-flutter
-      path: packages/stream_feed
+#  stream_feed:
+#    git:
+#      url: https://github.com/toaingo2108/stream-feed-flutter
+#      path: packages/stream_feed

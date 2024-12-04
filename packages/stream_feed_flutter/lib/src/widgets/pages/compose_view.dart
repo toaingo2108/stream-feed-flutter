@@ -13,6 +13,7 @@ class ComposeView extends StatefulWidget {
       this.parentActivity,
       this.feedGroup = 'user',
       this.nameJsonKey = 'full_name',
+      this.foreignId = 'foreign_id',
       required this.textEditingController})
       : super(key: key);
 
@@ -27,6 +28,8 @@ class ComposeView extends StatefulWidget {
   /// The json key for the user's name.
   final String nameJsonKey;
 
+  final String foreignId;
+
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
@@ -37,6 +40,7 @@ class ComposeView extends StatefulWidget {
       ..add(StringProperty('nameJsonKey', nameJsonKey))
       ..add(DiagnosticsProperty<TextEditingController>(
           'textEditingController', textEditingController));
+    properties.add(StringProperty('foreignId', foreignId));
   }
 
   @override
@@ -94,7 +98,7 @@ class _ComposeViewState extends State<ComposeView> {
       appBar: AppBar(
         backgroundColor: Theme.of(context).canvasColor,
         iconTheme: Theme.of(context).iconTheme,
-        titleTextStyle: Theme.of(context).textTheme.headline6,
+        titleTextStyle: Theme.of(context).textTheme.titleLarge,
         elevation: 0,
         title: Text(_isReply ? 'Reply' : 'Post'),
         actions: [
@@ -120,13 +124,12 @@ class _ComposeViewState extends State<ComposeView> {
                             feedGroup: widget.feedGroup,
                           )
                       : FeedProvider.of(context).bloc.onAddActivity(
-                            feedGroup: widget.feedGroup,
-                            verb: 'post',
-                            object: widget.textEditingController.text,
-                            userId:
-                                FeedProvider.of(context).bloc.currentUser!.id,
-                            data: attachments,
-                          );
+                          feedGroup: widget.feedGroup,
+                          verb: 'post',
+                          object: widget.textEditingController.text,
+                          userId: FeedProvider.of(context).bloc.currentUser!.id,
+                          data: attachments,
+                          foreignId: widget.foreignId);
                   uploadController.clear();
                   Navigator.of(context).pop();
                 } catch (e) {

@@ -5,7 +5,7 @@ class AppUser {
       : id = 'sahil-kumar',
         name = 'Sahil Kumar',
         token =
-            '''eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoic2FoaWwta3VtYXIifQ.QsRdmdDSYV6cOD_Ay9EFgPZmhlgEcGVSB2dOrUTuTI0''';
+            '''eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoic2FoaWwta3VtYXIifQ.UZB7rAJwqaqjuRyPnaKGKaMHkKd4IP1uPIj7-31yxCw''';
 
   //ignore: public_member_api_docs
   const AppUser.sacha()

@@ -11,7 +11,7 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized();
   const _key = String.fromEnvironment('key');
 
-  final client = StreamFeedClient(_key);
+  final client = StreamFeedClient(_key, appId: 'testing');
 
   runApp(
     MyApp(
@@ -105,7 +105,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     },
                     style: ElevatedButton.styleFrom(
                       padding: const EdgeInsets.symmetric(horizontal: 4),
-                      primary: Colors.white,
+                      foregroundColor: Colors.white,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(24),
                       ),

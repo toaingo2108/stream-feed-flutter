@@ -17,6 +17,7 @@ class CommentField extends StatelessWidget {
     this.activity,
     this.targetFeeds,
     required this.textEditingController,
+    required this.foreignId,
     this.enableButton = true,
   }) : super(key: key);
 
@@ -37,6 +38,9 @@ class CommentField extends StatelessWidget {
 
   ///The feed group part of the feed
   final String feedGroup;
+
+  /// Foreign Id
+  final String foreignId;
 
   @override
   Widget build(BuildContext context) {
@@ -67,6 +71,7 @@ class CommentField extends StatelessWidget {
                 activity: activity,
                 targetFeeds: targetFeeds,
                 textEditingController: textEditingController,
+                foreignId: foreignId,
               )
           ],
         ),
@@ -84,5 +89,6 @@ class CommentField extends StatelessWidget {
         'textEditingController', textEditingController));
     properties.add(DiagnosticsProperty<bool>('enableButton', enableButton));
     properties.add(StringProperty('feedGroup', feedGroup));
+    properties.add(StringProperty('foreignId', foreignId));
   }
 }

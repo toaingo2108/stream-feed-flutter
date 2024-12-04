@@ -8,7 +8,7 @@ import 'package:stream_feed_flutter_core/stream_feed_flutter_core.dart';
 const tutorialUrl = 'https://getstream.io/activity-feeds/sdk/flutter/tutorial/';
 
 Future<void> main() async {
-  const apiKey = 'q29npdvqjr99'; // Replace with your API key.
+  const apiKey = 'api_key'; // Replace with your API key.
   final client = StreamFeedClient(apiKey);
 
   runApp(
@@ -463,7 +463,7 @@ class ListActivityItem extends StatelessWidget {
             const SizedBox(width: 8),
             Text(
               actor.handle,
-              style: Theme.of(context).textTheme.caption,
+              style: Theme.of(context).textTheme.bodySmall,
             ),
           ],
         ),
@@ -508,7 +508,7 @@ class ListActivityItem extends StatelessWidget {
                   if (reactionCounts?['like'] != null)
                     Text(
                       '${reactionCounts?['like']}',
-                      style: Theme.of(context).textTheme.caption,
+                      style: Theme.of(context).textTheme.bodySmall,
                     )
                 ],
               ),
@@ -523,7 +523,7 @@ class ListActivityItem extends StatelessWidget {
                   if (reactionCounts?['comment'] != null)
                     Text(
                       '${reactionCounts?['comment']}',
-                      style: Theme.of(context).textTheme.caption,
+                      style: Theme.of(context).textTheme.bodySmall,
                     )
                 ],
               )
@@ -582,6 +582,7 @@ class _ComposeActivityPageState extends State<ComposeActivityPage> {
         verb: 'post',
         object: _textEditingController.text,
         data: media,
+        foreignId: 'foreign_id',
       );
       uploadController.clear();
       Navigator.pop(context);
@@ -649,7 +650,7 @@ class _ComposeActivityPageState extends State<ComposeActivityPage> {
                   ),
                   Text(
                     'Add image',
-                    style: Theme.of(context).textTheme.caption,
+                    style: Theme.of(context).textTheme.bodySmall,
                   ),
                 ],
               ),

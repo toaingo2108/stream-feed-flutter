@@ -17,6 +17,7 @@ class AlertDialogComment extends StatelessWidget {
   const AlertDialogComment({
     Key? key,
     required this.feedGroup,
+    required this.foreignId,
     this.activity,
     this.handleJsonKey = 'handle',
     this.nameJsonKey = 'name',
@@ -32,6 +33,8 @@ class AlertDialogComment extends StatelessWidget {
 
   final String nameJsonKey;
 
+  final String foreignId;
+
   @override
   Widget build(BuildContext context) {
     final textEditingController = TextEditingController();
@@ -41,6 +44,7 @@ class AlertDialogComment extends StatelessWidget {
           activity: activity,
           feedGroup: feedGroup,
           textEditingController: textEditingController,
+          foreignId: foreignId,
         ),
       ],
       content: CommentView(
@@ -61,6 +65,7 @@ class AlertDialogComment extends StatelessWidget {
         .add(DiagnosticsProperty<EnrichedActivity?>('activity', activity));
     properties.add(StringProperty('handleJsonKey', handleJsonKey));
     properties.add(StringProperty('nameJsonKey', nameJsonKey));
+    properties.add(StringProperty('foreignId', foreignId));
   }
 }
 
@@ -84,6 +89,7 @@ class CommentView extends StatelessWidget {
     this.enableCommentFieldButton = false,
     this.handleJsonKey = 'handle',
     this.nameJsonKey = 'name',
+    this.foreignId = 'foreign_id',
   }) : super(key: key);
 
   final EnrichedActivity? activity;
@@ -111,6 +117,8 @@ class CommentView extends StatelessWidget {
   final String handleJsonKey;
 
   final String nameJsonKey;
+
+  final String foreignId;
 
   @override
   Widget build(BuildContext context) {
@@ -175,6 +183,7 @@ class CommentView extends StatelessWidget {
             //enabled in actions [RightActions]
             enableButton: enableCommentFieldButton,
             feedGroup: feedGroup,
+            foreignId: foreignId,
           ),
         ),
       ],
@@ -202,6 +211,7 @@ class CommentView extends StatelessWidget {
         'enableCommentFieldButton', enableCommentFieldButton));
     properties.add(StringProperty('handleJsonKey', handleJsonKey));
     properties.add(StringProperty('nameJsonKey', nameJsonKey));
+    properties.add(StringProperty('foreignId', foreignId));
   }
 }
 
@@ -216,12 +226,14 @@ class AlertDialogActions extends StatelessWidget {
     this.targetFeeds,
     required this.feedGroup,
     required this.textEditingController,
+    required this.foreignId,
   }) : super(key: key);
 
   final EnrichedActivity? activity;
 
   final List<FeedId>? targetFeeds;
   final String feedGroup;
+  final String foreignId;
 
   final TextEditingController textEditingController;
 
@@ -237,6 +249,7 @@ class AlertDialogActions extends StatelessWidget {
             activity: activity, //TODO: upload controller thingy
             targetFeeds: targetFeeds,
             feedGroup: feedGroup,
+            foreignId: foreignId,
           ),
         ],
       ),
@@ -252,6 +265,7 @@ class AlertDialogActions extends StatelessWidget {
     properties.add(StringProperty('feedGroup', feedGroup));
     properties.add(DiagnosticsProperty<TextEditingController>(
         'textEditingController', textEditingController));
+    properties.add(StringProperty('foreignId', foreignId));
   }
 }
 
@@ -306,6 +320,7 @@ class RightActions extends StatelessWidget {
     required this.textEditingController,
     this.activity,
     required this.feedGroup,
+    required this.foreignId,
     this.targetFeeds,
   }) : super(key: key);
 
@@ -317,6 +332,8 @@ class RightActions extends StatelessWidget {
 
   final List<FeedId>? targetFeeds;
 
+  final String foreignId;
+
   @override
   Widget build(BuildContext context) {
     return Align(
@@ -327,6 +344,7 @@ class RightActions extends StatelessWidget {
           activity: activity,
           targetFeeds: targetFeeds,
           textEditingController: textEditingController,
+          foreignId: foreignId,
         ));
   }
 
@@ -339,5 +357,6 @@ class RightActions extends StatelessWidget {
         'textEditingController', textEditingController));
     properties.add(StringProperty('feedGroup', feedGroup));
     properties.add(IterableProperty<FeedId>('targetFeeds', targetFeeds));
+    properties.add(StringProperty('foreignId', foreignId));
   }
 }

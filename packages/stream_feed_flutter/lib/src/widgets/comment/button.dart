@@ -23,6 +23,7 @@ class PostCommentButton extends StatelessWidget {
     required this.textEditingController,
     this.activity,
     required this.feedGroup,
+    required this.foreignId,
     this.targetFeeds,
   }) : super(key: key);
 
@@ -43,6 +44,9 @@ class PostCommentButton extends StatelessWidget {
   ///The targeted feeds to post to.
   final List<FeedId>? targetFeeds;
 
+  ///Foreign Id
+  final String foreignId;
+
   @override
   Widget build(BuildContext context) {
     return ReactiveElevatedButton(
@@ -62,6 +66,7 @@ class PostCommentButton extends StatelessWidget {
                 verb: 'post',
                 //data: TODO: attachments with upload controller thingy
                 object: trimmedText,
+                foreignId: foreignId,
               );
       },
 
@@ -79,5 +84,6 @@ class PostCommentButton extends StatelessWidget {
         'textEditingController', textEditingController));
     properties.add(StringProperty('feedGroup', feedGroup));
     properties.add(IterableProperty<FeedId>('targetFeeds', targetFeeds));
+    properties.add(StringProperty('foreignId', foreignId));
   }
 }

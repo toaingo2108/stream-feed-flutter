@@ -504,6 +504,7 @@ void main() {
         verb: 'post',
         object: 'test',
         userId: 'test',
+        foreignId: 'foreignId',
       );
       verify(() => mockFeed.addActivity(activity)).called(1);
       verify(() => mockFeed.getEnrichedActivityDetail(addedActivity.id!))

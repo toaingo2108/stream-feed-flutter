@@ -137,7 +137,7 @@ class MobileApp extends StatelessWidget {
         ),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
-            primary: const Color(0xff005fff),
+            backgroundColor: const Color(0xff005fff),
           ),
         ),
       ),
@@ -205,7 +205,7 @@ class _LoginScreenState extends State<LoginScreen> with StreamFeedMixin {
             const SizedBox(height: 16),
             Text(
               'Welcome to the Stream Feed Flutter Sample App!',
-              style: Theme.of(context).textTheme.headline6,
+              style: Theme.of(context).textTheme.titleLarge,
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 16),
@@ -264,7 +264,7 @@ class _MyHomePageState extends State<MyHomePage> with StreamFeedMixin {
         backgroundColor: Theme.of(context).canvasColor,
         elevation: 0,
         actionsIconTheme: Theme.of(context).iconTheme,
-        titleTextStyle: Theme.of(context).textTheme.headline6,
+        titleTextStyle: Theme.of(context).textTheme.titleLarge,
         leading: Padding(
           padding: const EdgeInsets.all(8),
           child: Builder(builder: (context) {
@@ -304,7 +304,7 @@ class _MyHomePageState extends State<MyHomePage> with StreamFeedMixin {
                 const SizedBox(height: 8),
                 Text(
                   bloc.currentUser!.data!['full_name'].toString(),
-                  style: Theme.of(context).textTheme.headline6,
+                  style: Theme.of(context).textTheme.titleLarge,
                 ),
                 const SizedBox(height: 4),
                 Text('${bloc.currentUser?.data!['handle']}'),
@@ -550,7 +550,7 @@ class _ProfileScreenState extends State<ProfileScreen> with StreamFeedMixin {
                   const SizedBox(height: 8),
                   Text(
                     '${widget.user?.data?['full_name'] ?? bloc.currentUser!.data!['full_name']}',
-                    style: Theme.of(context).textTheme.headline6,
+                    style: Theme.of(context).textTheme.titleLarge,
                   ),
                   const SizedBox(height: 8),
                   Row(
@@ -561,11 +561,11 @@ class _ProfileScreenState extends State<ProfileScreen> with StreamFeedMixin {
                         children: [
                           Text(
                             '${widget.user?.followersCount ?? bloc.currentUser!.followersCount}',
-                            style: Theme.of(context).textTheme.headline6,
+                            style: Theme.of(context).textTheme.titleLarge,
                           ),
                           Text(
                             'Followers',
-                            style: Theme.of(context).textTheme.bodyText1,
+                            style: Theme.of(context).textTheme.bodyLarge,
                           ),
                         ],
                       ),
@@ -574,11 +574,11 @@ class _ProfileScreenState extends State<ProfileScreen> with StreamFeedMixin {
                         children: [
                           Text(
                             '${widget.user?.followingCount ?? bloc.currentUser!.followingCount}',
-                            style: Theme.of(context).textTheme.headline6,
+                            style: Theme.of(context).textTheme.titleLarge,
                           ),
                           Text(
                             'Following',
-                            style: Theme.of(context).textTheme.bodyText1,
+                            style: Theme.of(context).textTheme.bodyLarge,
                           ),
                         ],
                       ),

@@ -95,6 +95,7 @@ void main() {
             child: RightActions(
               feedGroup: 'user',
               textEditingController: TextEditingController(),
+              foreignId: 'foreign_id',
             ),
           ),
         ),
@@ -143,6 +144,7 @@ void main() {
               child: AlertDialogActions(
                 feedGroup: 'user',
                 textEditingController: TextEditingController(),
+                foreignId: 'foreign_id',
               ),
             ),
           ),
@@ -169,6 +171,7 @@ void main() {
               home: Scaffold(
                 body: AlertDialogComment(
                   feedGroup: 'user',
+                  foreignId: 'foreign_id',
                   activity: EnrichedActivity(
                     id: '1',
                     time: DateTime.now(),
@@ -266,6 +269,7 @@ void main() {
       final builder = DiagnosticPropertiesBuilder();
       const alertDialogComment = AlertDialogComment(
         feedGroup: 'user',
+        foreignId: 'foreign_id',
       );
 
       alertDialogComment.debugFillProperties(builder);
@@ -301,6 +305,7 @@ void main() {
       final now = DateTime.now();
       final alertDialogActions = AlertDialogActions(
         feedGroup: 'user',
+        foreignId: 'foreign_id',
         textEditingController: TextEditingController(),
         activity: GenericEnrichedActivity(
           time: now,
@@ -349,6 +354,7 @@ void main() {
       final builder = DiagnosticPropertiesBuilder();
       final rightActions = RightActions(
         feedGroup: 'user',
+        foreignId: 'foreign_id',
         textEditingController: TextEditingController(),
       );
 
