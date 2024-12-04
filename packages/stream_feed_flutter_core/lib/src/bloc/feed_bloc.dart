@@ -221,6 +221,7 @@ class GenericFeedBloc<A, Ob, T, Or> extends Equatable {
     Map<String, Object>? data,
     required String verb,
     required String object,
+    required String foreignId,
     String? userId,
     List<FeedId>? to,
     DateTime? time,
@@ -232,6 +233,7 @@ class GenericFeedBloc<A, Ob, T, Or> extends Equatable {
       extraData: data,
       to: to,
       time: time,
+      foreignId: foreignId,
     );
 
     final flatFeed = client.flatFeed(feedGroup, userId);
